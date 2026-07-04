@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hall VI — More Information · Condominio El Oasis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep:       #0f1d10;
+      --deep-mid:   #172619;
+      --deep-lt:    #1e3020;
+      --gold:       #c8a84b;
+      --gold-dim:   #a08535;
+      --parchment:  #f3ede0;
+      --parch-dim:  #c9bfa8;
+      --border:     #2a4030;
+      --border-lt:  #3a5040;
+      --rule:       #4a6050;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Josefin Sans', sans-serif;
+      background: var(--deep);
+      color: var(--parchment);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+
+    /* ── Portal nav bar ── */
+    .portal-nav {
+      background: #0a1509;
+      color: var(--parch-dim);
+      padding: 0.55rem 2rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+    }
+    .portal-nav a {
+      color: var(--parch-dim);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .portal-nav a:hover { color: var(--gold); }
+    .portal-nav .sep { color: var(--rule); }
+    .portal-nav .home { color: var(--parchment); font-weight: 500; }
+
+    /* ── Page header ── */
+    .page-header {
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 2rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .hall-eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .hall-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--parchment);
+      letter-spacing: -0.01em;
+    }
+
+    .hall-desc {
+      margin-top: 0.9rem;
+      font-size: 0.88rem;
+      color: var(--parch-dim);
+      max-width: 560px;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Main content ── */
+    .content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+    }
+
+    /* ── Section block ── */
+    .hall-section {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 0 3rem;
+      align-items: start;
+    }
+
+    .section-label-col {
+      padding-top: 0.25rem;
+      position: sticky;
+      top: 1.5rem;
+    }
+
+    .section-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--rule);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.28rem;
+      font-weight: 600;
+      color: var(--parchment);
+      line-height: 1.25;
+    }
+
+    .section-rule {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--gold);
+      margin-top: 0.7rem;
+    }
+
+    /* ── Link grid ── */
+    .link-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .link-entry {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border);
+      text-decoration: none;
+      color: var(--parchment);
+      transition: background 0.15s;
+      cursor: pointer;
+    }
+
+    .link-entry:hover .link-title { color: var(--gold); }
+    .link-entry:hover .link-arrow { opacity: 1; transform: translateX(3px); }
+
+    .link-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--rule);
+      flex-shrink: 0;
+      margin-top: 0.45em;
+    }
+
+    .link-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .link-title {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--parchment);
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .link-sub {
+      font-size: 0.75rem;
+      color: var(--parch-dim);
+      margin-top: 0.15rem;
+      letter-spacing: 0.02em;
+    }
+
+    .link-arrow {
+      font-size: 0.85rem;
+      color: var(--gold-dim);
+      flex-shrink: 0;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    /* Placeholder state */
+    .link-entry.placeholder {
+      opacity: 0.38;
+      cursor: default;
+      pointer-events: none;
+    }
+    .link-entry.placeholder .link-title {
+      font-style: italic;
+      color: var(--parch-dim);
+    }
+
+    /* ── Add-link slot ── */
+    .add-slot {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 0;
+      font-size: 0.75rem;
+      font-style: italic;
+      color: var(--rule);
+      border-bottom: 1px dashed var(--border-lt);
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Footer ── */
+    .page-footer {
+      border-top: 1px solid var(--border);
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.75rem;
+      color: var(--parch-dim);
+      letter-spacing: 0.04em;
+    }
+    .page-footer a {
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+    .page-footer a:hover { text-decoration: underline; }
+
+    /* ── Responsive ── */
+    @media (max-width: 680px) {
+      .hall-section {
+        grid-template-columns: 1fr;
+        gap: 1.25rem 0;
+      }
+      .section-label-col { position: static; }
+      .portal-nav { gap: 1rem; font-size: 0.66rem; padding: 0.5rem 1rem; }
+      .page-header { padding: 2rem 1rem 1.75rem; }
+      .content { padding: 2rem 1rem 4rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Portal navigation bar -->
+  <nav class="portal-nav" aria-label="Portal navigation">
+    <a href="index.html" class="home">El Oasis</a>
+    <span class="sep">›</span>
+    <a href="lobby.html">Lobby</a>
+    <span class="sep">›</span>
+    <span>Hall VI</span>
+  </nav>
+
+  <!-- Page header -->
+  <header class="page-header">
+    <p class="hall-eyebrow">Hall VI &nbsp;·&nbsp; Condominio El Oasis</p>
+    <h1 class="hall-title">More Information</h1>
+    <p class="hall-desc">
+      Extended reference catalogues spanning El Oasis grounds and the Costa Rica Histórica archive — archaeology, tradition, land use, and infrastructure.
+    </p>
+  </header>
+
+  <!-- Content -->
+  <main class="content">
+
+    <!-- ── Section I: Chorotega Legacy ── -->
+    <section class="hall-section" aria-labelledby="sec-chorotega">
+      <div class="section-label-col">
+        <h2 class="section-title" id="sec-chorotega">Chorotega<br>Legacy</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="link-grid" role="list">
+
+        <a href="chorotega_place_names.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Chorotega Place Names</span>
+            <span class="link-sub">Mangue and Chorotega toponyms across Greater Nicoya — the spoken landscape</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="nacascolo.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Nacascolo</span>
+            <span class="link-sub">NAC series · Monte del Barco phase burials — Bahía Culebra, Guanacaste</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="el_farallon_corobicí.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">El Farallón Corobicí</span>
+            <span class="link-sub">FAR series · La Gran Piedra de Guanacaste — Cedros de Sandillal, Cañas</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="Ceramica_Tradicional_Catalogue.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Cerámica Tradicional</span>
+            <span class="link-sub">Three plates — clay preparation, the pottery workshop, and the water vessel in daily life</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="bizcocho_de_nicoya.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">El Bizcocho de Nicoya</span>
+            <span class="link-sub">FTG series · Two plates — traditional maize biscuit of Nicoya, Guanacaste</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <div class="add-slot" aria-hidden="true">+ add link</div>
+      </div>
+    </section>
+
+    <!-- ── Section II: Other Pre-Columbian Influences ── -->
+    <section class="hall-section" aria-labelledby="sec-precolombino">
+      <div class="section-label-col">
+        <h2 class="section-title" id="sec-precolombino">Other Pre-Columbian<br>Influences</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="link-grid" role="list">
+
+        <a href="alto-del-cardal-tierra-blanca.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Alto del Cardal &amp; Tierra Blanca</span>
+            <span class="link-sub">CAR series · José Fidel Tristán excavations — southwestern Volcán Irazú, Cartago, 1913–1914</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="metate_y_mano_section.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">El Metate y la Mano</span>
+            <span class="link-sub">Grinding stone and hand mano in traditional Costa Rican life — continuity from pre-Columbian practice</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="orfebreria_precolombina.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Orfebrería Precolombina</span>
+            <span class="link-sub">Single photographic plate — pre-Columbian goldwork from the Costa Rican archive</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="boruca_masks_catalogue.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Máscaras de Boruca</span>
+            <span class="link-sub">Boruca / Brunca mask tradition — from one shop to every shop · Térraba-Boruca, Puntarenas</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="rasgos_ornamentales_el_oasis_v1.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Rasgos Ornamentales — El Oasis</span>
+            <span class="link-sub">Photographic and descriptive register of ornamental features across the common grounds</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <div class="add-slot" aria-hidden="true">+ add link</div>
+      </div>
+    </section>
+
+    <!-- ── Section III: Crossings ── -->
+    <section class="hall-section" aria-labelledby="sec-crossings">
+      <div class="section-label-col">
+        <h2 class="section-title" id="sec-crossings">Crossings</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="link-grid" role="list">
+
+        <a href="crossings_costarica_historica_2.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Crossings — Costa Rica Histórica</span>
+            <span class="link-sub">C series · Five fords, five eras — men, machine, ox-team, and rail against moving water</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <div class="add-slot" aria-hidden="true">+ add link</div>
+      </div>
+    </section>
+
+    <!-- ── Section IV: Agricultura ── -->
+    <section class="hall-section" aria-labelledby="sec-agricultura">
+      <div class="section-label-col">
+        <h2 class="section-title" id="sec-agricultura">Agricultura</h2>
+        <span class="section-rule" aria-hidden="true"></span>
+      </div>
+      <div class="link-grid" role="list">
+
+        <a href="la_cosecha.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">La Cosecha</span>
+            <span class="link-sub">Three plates · La fruta del país, en exhibición, en camino y en venta</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="la_zafra.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">La Zafra</span>
+            <span class="link-sub">One plate · La cosecha manual de la caña de azúcar</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <a href="ganado_y_sabaneros.html" class="link-entry" role="listitem">
+          <span class="link-dot" aria-hidden="true"></span>
+          <span class="link-body">
+            <span class="link-title">Ganado y Sabaneros</span>
+            <span class="link-sub">Three plates · El manejo del ganado a caballo en la sabana guanacasteca</span>
+          </span>
+          <span class="link-arrow" aria-hidden="true">→</span>
+        </a>
+
+        <div class="add-slot" aria-hidden="true">+ add link</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <span>Condominio El Oasis &nbsp;·&nbsp; Playa Hermosa, Guanacaste</span>
+    <a href="index.html">← Return to Portal</a>
+  </footer>
+
+</body>
+</html>

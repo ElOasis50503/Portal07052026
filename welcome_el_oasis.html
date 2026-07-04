@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome — Condominio El Oasis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --jungle-deep: #0f1d10;
+      --jungle-mid:  #1a3320;
+      --jungle-light:#2a4d32;
+      --gold:        #c8a84b;
+      --gold-light:  #dfc278;
+      --parchment:   #f3ede0;
+      --parchment-dark: #e8e0cc;
+      --ink:         #1c1c1c;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--jungle-deep);
+      color: var(--parchment);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    header {
+      background: linear-gradient(160deg, var(--jungle-mid) 0%, var(--jungle-deep) 100%);
+      border-bottom: 2px solid var(--gold);
+      padding: 3rem 2rem 2.5rem;
+      text-align: center;
+    }
+
+    header .eyebrow {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    header h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 500;
+      font-style: italic;
+      color: var(--parchment);
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1 span {
+      color: var(--gold);
+      font-style: normal;
+    }
+
+    header .subtitle {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      opacity: 0.85;
+    }
+
+    .ornament {
+      color: var(--gold);
+      font-size: 1.4rem;
+      display: block;
+      margin: 1rem auto 0;
+      opacity: 0.6;
+    }
+
+    /* ── Nav back link ── */
+    .back-nav {
+      background: var(--jungle-mid);
+      border-bottom: 1px solid var(--jungle-light);
+      padding: 0.6rem 2rem;
+    }
+
+    .back-nav a {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .back-nav a:hover { opacity: 1; }
+    .back-nav a::before { content: "← "; }
+
+    /* ── Main layout ── */
+    main {
+      max-width: 860px;
+      margin: 3rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    /* ── Intro block ── */
+    .intro {
+      background: linear-gradient(135deg, var(--jungle-mid), var(--jungle-light));
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 2rem 2.5rem;
+      margin-bottom: 3rem;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--parchment);
+      line-height: 1.85;
+    }
+
+    /* ── Section heading ── */
+    .section-title {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border-bottom: 1px solid var(--jungle-light);
+      padding-bottom: 0.6rem;
+      margin: 2.8rem 0 1.6rem;
+    }
+
+    /* ── Rule cards ── */
+    .rule-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .rule-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      background: var(--jungle-mid);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 3px 3px 0;
+      padding: 0.85rem 1.2rem;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      color: var(--parchment);
+    }
+
+    .rule-item .bullet {
+      color: var(--gold);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 0.05rem;
+    }
+
+    /* ── Bylaw extracts ── */
+    .bylaw-block {
+      background: rgba(200, 168, 75, 0.07);
+      border: 1px solid rgba(200, 168, 75, 0.3);
+      border-radius: 4px;
+      padding: 1.4rem 1.8rem;
+      margin-bottom: 1rem;
+      font-style: italic;
+      font-size: 0.96rem;
+      color: var(--parchment);
+      line-height: 1.8;
+    }
+
+    .bylaw-block .bylaw-topic {
+      font-family: 'Josefin Sans', sans-serif;
+      font-style: normal;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: block;
+      margin-bottom: 0.55rem;
+    }
+
+    /* ── Contact block ── */
+    .contact-card {
+      background: var(--jungle-mid);
+      border: 1px solid var(--gold);
+      border-radius: 4px;
+      padding: 1.6rem 2rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-card .contact-name {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--gold);
+      margin-bottom: 0.25rem;
+    }
+
+    .contact-card .contact-role {
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--parchment);
+      opacity: 0.7;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-card a {
+      color: var(--gold-light);
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .contact-card a:hover { text-decoration: underline; }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      border-top: 1px solid var(--jungle-light);
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <p class="eyebrow">Playa Hermosa · Guanacaste · Costa Rica</p>
+    <h1><em>Bienvenidos</em> — <span>Condominio El Oasis</span></h1>
+    <p class="subtitle">Resident Orientation &amp; Community Standards</p>
+    <span class="ornament">✦</span>
+  </header>
+
+  <nav class="back-nav">
+    <a href="index.html">Lobby</a>
+  </nav>
+
+  <main>
+
+    <div class="intro">
+      Over the years, and in order to ease the arrival of new owners and tenants, the following information has been assembled for your reference. Owners are asked to ensure their tenants are made aware of community ground rules before taking occupancy.
+    </div>
+
+    <!-- Property Overview -->
+    <p class="section-title">Property Overview</p>
+    <div class="rule-list">
+      <div class="rule-item"><span class="bullet">◆</span><span>There are <strong>15 residential units</strong>, each comprising two levels.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>A unit may be owned by one owner, or each level owned separately. Each unit holds <strong>one vote</strong>; for informal votes, there is one vote per level.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>The driveway is for the use of the <strong>ground-floor unit</strong>. Driveway gates must be locked at night for the security of all residents.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Common areas include the front and back parking lots, the pool, and all grounds. <strong>No structures may be erected</strong> in any common area by owners.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Any changes to a building must be accepted by all owners of that building and approved by the HOA.</span></div>
+    </div>
+
+    <!-- Governance -->
+    <p class="section-title">Governance &amp; Meetings</p>
+    <div class="rule-list">
+      <div class="rule-item"><span class="bullet">◆</span><span>Annual meetings are normally held the <strong>third Monday of January</strong>, announced a minimum of 30 days in advance.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Votes must be announced in advance to allow time for proxy discussions with owners.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>The HOA currently has <strong>5 elected members/directors</strong>, elected annually. This is a voluntary position and your support is appreciated.</span></div>
+    </div>
+
+    <!-- Pool & Common Areas -->
+    <p class="section-title">Pool &amp; Common Areas</p>
+    <div class="rule-list">
+      <div class="rule-item"><span class="bullet">◆</span><span>Only owners, guests staying at their unit, registered renters, and accompanied guests are permitted use of the pool and common areas.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Access to the pool requires the <strong>presence of the owner</strong>, their houseguests, or their tenants. Short-term registered renters may not bring independent guests to the pool.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span><strong>Showering before entering the pool is obligatory.</strong> Jumping and diving are not permitted. Owners are encouraged to lead by example.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Do not reserve pool chairs by leaving towels on them.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Music is not permitted in the pool common area.</span></div>
+    </div>
+
+    <!-- Noise & Conduct -->
+    <p class="section-title">Noise &amp; Conduct</p>
+    <div class="rule-list">
+      <div class="rule-item"><span class="bullet">◆</span><span>Out of respect for all residents, <strong>unreasonably loud noise or activity after 10:00 pm</strong> — including outdoor parties and amplified music — is not permitted on the premises.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span><strong>No animals of any kind</strong> are allowed on the property.</span></div>
+      <div class="rule-item"><span class="bullet">◆</span><span>Plants and materials on owners' porches are to be maintained by owners, not by the grounds staff.</span></div>
+    </div>
+
+    <!-- Waste -->
+    <p class="section-title">Waste &amp; Grounds</p>
+    <div class="rule-list">
+      <div class="rule-item"><span class="bullet">◆</span><span>Garbage must be placed <strong>directly in the rear bin</strong> in hermetically sealed containers. Refuse left out attracts scavengers, insects, and rodents and scatters throughout the property.</span></div>
+    </div>
+
+    <!-- Manager Contact -->
+    <p class="section-title">Community Manager</p>
+    <div class="contact-card">
+      <p class="contact-name">Exibel Jácamo Vallejos</p>
+      <p class="contact-role">Property Manager — from February 21, 2025</p>
+      <a href="mailto:exibel2025@hotmail.com">exibel2025@hotmail.com</a>
+      <p style="margin-top:0.75rem; font-size:0.92rem; opacity:0.85;">All complaints, comments, and administrative inquiries should be directed to the manager.</p>
+    </div>
+
+    <!-- Bylaw Extracts -->
+    <p class="section-title">Bylaw Extracts — Selected Provisions</p>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Use of Individual Property</span>
+      Each owner shall use his individual property in an orderly and quiet manner and not carry out any act that disturbs the tranquillity of other co-owners, or that compromises the soundness, safety, health, comfort, and order of the building and the condominium as a whole.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Common Area Improvements</span>
+      Ornamental improvements in common areas require the unanimous consent of co-owners. Useful improvements require approval of not less than seventy-five percent of the total value of the condominium. Necessary improvements shall be made with the agreement of a simple majority.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Interior Works &amp; Structural Prohibitions</span>
+      Owners may carry out works or repairs inside their unit; however, any innovation or modification affecting the structure, master walls, or other essential elements of the building or apartments is prohibited. No change or alteration, whether in common or private areas, may affect structural walls or columns, or modify façades.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Front Garden Works</span>
+      Any masonry work in the front gardens — terraces, flower pots, sculpture slabs, lanterns, or other installations — must be consulted with the Administrator prior to execution.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Parking Areas</span>
+      No fences or obstacles may be placed between parking spaces in the parking areas.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Prohibited Materials</span>
+      Enclosure with zinc flashing, black or galvanized iron, or any material that deteriorates the overall appearance of the complex is prohibited under any circumstances.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Exterior Maintenance &amp; Painting</span>
+      Window frames, doors, and light materials that require painting must be kept in good condition. Exterior painting shall not alter the façade colours without the consent of the Manager. Any deteriorated exterior elements — glass, window frames, and similar — must be replaced with materials identical to the originals; under no circumstances may they be replaced with materials of lesser quality.
+    </div>
+
+    <div class="bylaw-block">
+      <span class="bylaw-topic">Animals</span>
+      No animals of any kind shall be allowed.
+    </div>
+
+  </main>
+
+  <footer>
+    Condominio El Oasis &nbsp;·&nbsp; Playa Hermosa, Guanacaste &nbsp;·&nbsp; C.P. 50503 &nbsp;·&nbsp; Costa Rica
+  </footer>
+
+</body>
+</html>
